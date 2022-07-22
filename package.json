@@ -1,0 +1,30 @@
+{
+  "name": "github-easy-pr",
+  "version": "1.0.0",
+  "description": "Adds Approve button in Pull request comments",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FourwingsY/github-easy-pr.git"
+  },
+  "keywords": [
+    "chrome",
+    "extension",
+    "github",
+    "pull-request"
+  ],
+  "author": "fourwingsy@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FourwingsY/github-easy-pr/issues"
+  },
+  "homepage": "https://github.com/FourwingsY/github-easy-pr#readme",
+  "devDependencies": {
+    "@types/chrome": "^0.0.193",
+    "prettier": "^2.7.1",
+    "typescript": "^4.7.4"
+  }
+}
