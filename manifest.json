@@ -5,5 +5,12 @@
   "manifest_version": 3,
   "background": {
     "service_worker": "build/background.js"
-  }
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://*.github.com/*"],
+      "css": ["easy-pr.css"],
+      "js": ["build/pull-request.js"]
+    }
+  ]
 }
