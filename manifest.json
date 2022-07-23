@@ -10,7 +10,13 @@
     {
       "matches": ["https://*.github.com/*"],
       "css": ["easy-pr.css"],
-      "js": ["build/pull-request.js"]
+      "js": ["build/index.js"]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["build/main.js", "build/button.js", "build/approve.js"],
+      "matches": ["https://*.github.com/*"]
     }
   ]
 }

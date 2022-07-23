@@ -3,7 +3,7 @@
     /* Visit https://aka.ms/tsconfig.json to read more about this file */
 
     /* Projects */
-    "incremental": true,
+    // "incremental": true,
 
     /* Language and Environment */
     "target": "ES2020",
@@ -17,7 +17,6 @@
     "outDir": "./build",
     "removeComments": true,
     "noEmitOnError": true,
-    "sourceMap": true,
 
     /* Interop Constraints */
     "allowSyntheticDefaultImports": true,
@@ -35,5 +34,6 @@
     /* Completeness */
     "skipDefaultLibCheck": true,
     "skipLibCheck": true
-  }
+  },
+  "include": ["src"]
 }
