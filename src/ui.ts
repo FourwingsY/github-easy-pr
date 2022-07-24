@@ -8,7 +8,7 @@ export function addApproveButton() {
   commentButton.parentElement?.append(approveButton)
 }
 
-function createApproveButton() {
+export function createApproveButton() {
   const button = document.createElement("button")
   button.type = "submit"
   button.setAttribute("data-disable-with", "")
@@ -18,4 +18,10 @@ function createApproveButton() {
 <span class="js-form-action-text" data-default-action-text="Approve pull request">Approve pull request</span>`
   button.classList.add("btn", "btn-primary", "js-comment-and-button")
   return button
+}
+
+export function createMessage({ message }: { message: string }) {
+  const paragraph = document.createElement("p")
+  paragraph.innerText = message
+  return paragraph
 }

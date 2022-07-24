@@ -1,4 +1,4 @@
-import { addApproveButton } from "./button.js"
+import { addApproveButton } from "./ui.js"
 import { TOKEN_KEY } from "./constants.js"
 
 // run only on PR page

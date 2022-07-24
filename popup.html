@@ -17,6 +17,12 @@
       input {
         width: 20rem;
       }
+      #errors {
+        color: firebrick;
+      }
+      #warnings {
+        color: orange;
+      }
     </style>
   </head>
   <body>
@@ -28,7 +34,8 @@
       <input id="token" placeholder="Set your github token" />
       <button>Save</button>
     </div>
+    <div id="errors"></div>
+    <div id="warnings"></div>
   </body>
-  <script type="module" src="https://cdn.skypack.dev/octokit"></script>
   <script type="module" src="./build/popup.js"></script>
 </html>
