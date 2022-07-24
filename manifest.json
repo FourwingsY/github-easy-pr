@@ -3,6 +3,7 @@
   "description": "Adds Approve button in Pull request comments",
   "version": "1.0",
   "manifest_version": 3,
+  "permissions": ["storage"],
   "background": {
     "service_worker": "build/background.js"
   },
@@ -18,5 +19,8 @@
       "resources": ["build/main.js", "build/button.js", "build/approve.js"],
       "matches": ["https://*.github.com/*"]
     }
-  ]
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  }
 }
