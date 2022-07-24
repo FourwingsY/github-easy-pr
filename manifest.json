@@ -16,7 +16,7 @@
   ],
   "web_accessible_resources": [
     {
-      "resources": ["build/main.js", "build/button.js", "build/approve.js"],
+      "resources": ["build/main.js", "build/button.js", "build/github.js", "build/constants.js"],
       "matches": ["https://*.github.com/*"]
     }
   ],

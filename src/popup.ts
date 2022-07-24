@@ -1,9 +1,8 @@
-import { Octokit } from "octokit"
+import { TOKEN_KEY } from "./constants.js"
+import { validateToken } from "./github.js"
 
 const tokenInput = document.getElementById("token") as HTMLInputElement
 const tokenSave = document.querySelector("#token + button") as HTMLButtonElement
-
-const TOKEN_KEY = "easypr-token"
 
 function init() {
   chrome.storage.sync.get(TOKEN_KEY, (values) => {
@@ -21,8 +20,7 @@ function init() {
   })
 }
 async function validate(token: string) {
-  const octokit = new Octokit({ auth: token })
-  const { data } = await octokit.rest.users.getAuthenticated()
+  const data = validateToken(token)
   // TODO: check scopes
   console.log(data)
   return { isEnough: false }

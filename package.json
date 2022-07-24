@@ -27,8 +27,5 @@
     "@types/chrome": "^0.0.193",
     "prettier": "^2.7.1",
     "typescript": "^4.7.4"
-  },
-  "dependencies": {
-    "octokit": "^2.0.4"
   }
 }
