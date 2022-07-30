@@ -8,7 +8,7 @@ chrome.tabs.onUpdated.addListener(async function (tabId, update, tab) {
 
   chrome.scripting.executeScript({
     target: { tabId },
-    files: ["build/pull-request.js"],
+    files: ["pull-request.js"],
   })
 })
 
