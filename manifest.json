@@ -3,23 +3,11 @@
   "description": "Adds Approve button in Pull request comments",
   "version": "1.0",
   "manifest_version": 3,
-  "permissions": ["storage"],
+  "permissions": ["storage", "tabs", "scripting"],
   "background": {
-    "service_worker": "build/background.js"
+    "service_worker": "background.js"
   },
-  "content_scripts": [
-    {
-      "matches": ["https://*.github.com/*"],
-      "css": ["easy-pr.css"],
-      "js": ["build/index.js"]
-    }
-  ],
-  "web_accessible_resources": [
-    {
-      "resources": ["build/main.js", "build/button.js", "build/github.js", "build/constants.js"],
-      "matches": ["https://*.github.com/*"]
-    }
-  ],
+  "host_permissions": ["https://*.github.com/*"],
   "action": {
     "default_popup": "popup.html"
   }

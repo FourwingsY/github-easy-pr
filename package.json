@@ -5,7 +5,8 @@
   "main": "dist/index.js",
   "type": "module",
   "scripts": {
-    "build": "tsc"
+    "build": "tsc",
+    "publish": "tsc; cp ./manifest.json ./build; cp ./popup.html ./build"
   },
   "repository": {
     "type": "git",

@@ -1,13 +1,13 @@
-import { TOKEN_KEY } from "./constants.js"
-import { getAllowedScopes } from "./github.js"
-import { createMessage } from "./ui.js"
+const TOKEN_KEY = "easypr-token"
 
 const tokenInput = document.getElementById("token") as HTMLInputElement
 const tokenSave = document.querySelector("#token + button") as HTMLButtonElement
 
 function init() {
   chrome.storage.sync.get(TOKEN_KEY, (values) => {
-    tokenInput.value = values[TOKEN_KEY]
+    if (values[TOKEN_KEY]) {
+      tokenInput.value = values[TOKEN_KEY]
+    }
   })
 
   tokenSave?.addEventListener("click", async () => {
@@ -31,18 +31,38 @@ function init() {
     })
   })
 }
+
 async function validate(token: string) {
   const errors: string[] = []
   const warnings: string[] = []
   const scopes = await getAllowedScopes(token)
 
-  if (!scopes.includes("public_repo")) {
+  if (!scopes.includes("repo") && !scopes.includes("public_repo")) {
     errors.push("Cannot access your repositories")
   }
   if (!scopes.includes("repo")) {
     warnings.push("Cannot access your private repositories")
   }
   return { isEnough: errors.length === 0, errors, warnings }
+}
+
+async function getAllowedScopes(token: string) {
+  try {
+    const response = await fetch("https://api.github.com/users/codertocat", {
+      headers: { Authorization: `token ${token}` },
+    })
+    const allowedScopes = response.headers.get("x-oauth-scopes")?.split(", ") || []
+    return allowedScopes
+  } catch (e) {
+    console.error(e)
+    return []
+  }
+}
+
+function createMessage({ message }: { message: string }) {
+  const paragraph = document.createElement("p")
+  paragraph.innerText = message
+  return paragraph
 }
 
 init()
