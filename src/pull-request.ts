@@ -8,6 +8,7 @@ chrome.storage.sync.get("easypr-token", async function (items) {
   // Add approve button
   const actions = document.querySelector("#partial-new-comment-form-actions")
   if (!actions) return
+  if (actions.querySelector("#easy-pr-approve")) return
   const commentButton = actions.querySelector(".btn-primary")
   if (!commentButton) return
   const approveButton = createApproveButton()
@@ -43,6 +44,7 @@ async function testToken(token: string, pullRequest: PullRequest | null) {
 
 function createApproveButton() {
   const button = document.createElement("button")
+  button.id = "easy-pr-approve"
   button.type = "submit"
   button.setAttribute("data-disable-with", "")
   button.setAttribute("formnovalidate", "")

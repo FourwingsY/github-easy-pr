@@ -1,6 +1,7 @@
 chrome.runtime.onInstalled.addListener(() => {
   console.log("Plugin installed")
 })
+
 chrome.tabs.onUpdated.addListener(async function (tabId, update, tab) {
   if (update.status !== "complete") return
   const currentUrl = parseURL(tab.url)
